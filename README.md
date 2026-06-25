@@ -1,29 +1,49 @@
 # Meng-Han Ethan Wu — Personal Site
 
-A light, editorial, hand-built portfolio. Plain HTML / CSS / JS — **no build step, no framework, no dependencies**. Fonts load from Google Fonts.
+A light, editorial portfolio built with **React + Vite + Tailwind CSS**.
+Warm paper palette, Swiss grid, Fraunces / IBM Plex Mono type, single accent
+color. No gradients, no emoji.
 
+## Stack
+- **React 18** + **Vite 5** (fast dev server, build to static files)
+- **Tailwind CSS 3** — design tokens live in `tailwind.config.js`
+- Custom CSS (grain, marquee, scroll-reveal motion) in `src/index.css`
+
+## Structure
 ```
-index.html    structure & content
-styles.css    all styling (design tokens at top of file)
-script.js     scroll reveals, Atlanta clock, small interactions
+index.html              Vite entry (loads Google Fonts)
+src/
+  main.jsx              React root
+  App.jsx               page composition + grain overlay
+  index.css            Tailwind layers + custom utilities
+  data.js              projects, timeline, skills, facts (edit content here)
+  hooks/               useReveal (scroll-in), useClock (Atlanta time)
+  components/          Header, Hero, Marquee, Work, About, Log, Contact, Footer
+public/
+  portrait.jpg         profile photo (see below)
+.github/workflows/     GitHub Actions deploy to Pages
 ```
 
-## Run locally
-Any static server works. For example:
-
+## Develop
 ```bash
-python3 -m http.server 4733
-# open http://localhost:4733
+npm install
+npm run dev        # http://localhost:5173
+npm run build      # outputs to dist/
+npm run preview    # preview the production build
 ```
 
-## Deploy (pick one — all free)
-- **GitHub Pages** — push these files to a repo, Settings → Pages → deploy from `main` / root.
-- **Netlify / Vercel** — drag-and-drop the folder, or connect the repo. No build command, publish directory is `.`.
-- **Cloudflare Pages** — same; framework preset "None".
+## The profile photo
+The site expects `public/portrait.jpg`. Replace the placeholder with your own
+image (a 4:5-ish crop works best — it’s shown in the About section). The path is
+resolved against Vite’s `base`, so no code change is needed.
+
+## Deploy
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the app
+and publishes `dist/` to GitHub Pages at
+**https://emhw0930.github.io/ethan-site/**. Pages must be set to
+**Build and deployment → Source: GitHub Actions**.
 
 ## Customizing
-- **Colors / fonts / spacing**: edit the `:root` variables at the top of `styles.css`. The single accent is `--accent`.
-- **Content**: all text lives in `index.html` (projects in the `.projects` list, history in `.timeline`).
-- **Links**: LinkedIn, email, and phone are in the `#contact` section. (No GitHub link is included — add one there if you want it.)
-
-Design constraints honored throughout: no gradients, no emoji, no template look.
+- **Colors / fonts / spacing** — `tailwind.config.js` (`theme.extend`).
+- **Content** — `src/data.js`.
+- **Contact links** — `src/components/Contact.jsx`.

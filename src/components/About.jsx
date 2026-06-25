@@ -16,7 +16,7 @@ export default function About() {
               src={portrait}
               alt="Meng-Han Ethan Wu"
               loading="lazy"
-              className="aspect-[4/5] w-full object-cover object-top grayscale transition duration-700 ease-ease hover:grayscale-0"
+              className="aspect-[4/5] w-full object-cover object-top transition duration-700 ease-ease hover:scale-[1.02]"
             />
           </div>
           <figcaption className="mt-3 flex items-center justify-between font-mono text-[0.7rem] uppercase tracking-[0.06em] text-ink-faint">

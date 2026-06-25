@@ -99,13 +99,15 @@
         <a class="project__row" href="#contact">
           <span class="project__no">02</span>
           <span class="project__name">Cold-Outreach Agent</span>
-          <span class="project__stack">Claude · Gmail API · Sheets</span>
+          <span class="project__stack">LangGraph · Claude · Gmail API</span>
           <span class="project__year">2025</span>
           <span class="project__go" aria-hidden="true">&#8599;</span>
         </a>
         <p class="project__desc">
-          An autonomous pipeline that researches contacts, drafts tailored emails
-          with an LLM, sends through Gmail, and logs every touch to a sheet.
+          A LangGraph state machine that finds recruiters and drafts tailored
+          emails with Claude, then pauses on a human-in-the-loop interrupt for
+          approval — checkpointed so a run can resume — before sending via Gmail
+          and logging each touch.
         </p>
       </li>
 

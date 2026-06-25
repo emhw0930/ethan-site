@@ -1,4 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Intro from "./components/Intro";
+import Cursor from "./components/Cursor";
+import ScrollProgress from "./components/ScrollProgress";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
@@ -9,6 +12,8 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function App() {
+  const [intro, setIntro] = useState(true);
+
   // Flip the tab title when the user looks away.
   useEffect(() => {
     const original = document.title;
@@ -21,6 +26,9 @@ export default function App() {
 
   return (
     <>
+      {intro && <Intro onDone={() => setIntro(false)} />}
+      <Cursor />
+      <ScrollProgress />
       <div
         className="grain pointer-events-none fixed inset-0 z-[9999] opacity-[0.045] mix-blend-multiply"
         aria-hidden="true"

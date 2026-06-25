@@ -21,11 +21,13 @@ export default function Header() {
           <a
             key={href}
             href={href}
-            className="group relative pb-0.5 font-mono text-[0.78rem] tracking-[0.04em] text-ink-soft transition-colors hover:text-ink"
+            className="group flex items-baseline font-mono text-[0.78rem] tracking-[0.04em] text-ink-soft transition-colors hover:text-ink"
           >
             <span className="mr-[0.35em] text-[0.68rem] text-ink-faint">{idx}</span>
-            {label}
-            <span className="absolute bottom-0 left-0 h-px w-0 bg-ink transition-[width] duration-[400ms] ease-ease group-hover:w-full" />
+            <span className="relative inline-block overflow-hidden">
+              <span className="block transition-transform duration-[450ms] ease-ease group-hover:-translate-y-full">{label}</span>
+              <span className="absolute inset-0 block translate-y-full text-ink transition-transform duration-[450ms] ease-ease group-hover:translate-y-0">{label}</span>
+            </span>
           </a>
         ))}
       </nav>

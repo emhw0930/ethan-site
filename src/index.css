@@ -16,6 +16,21 @@
   ::selection {
     @apply bg-ink text-paper;
   }
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  /* keyboard focus only — no rings on mouse click */
+  :focus-visible {
+    outline: 2px solid theme("colors.accent");
+    outline-offset: 3px;
+  }
+  /* hide the native cursor when the custom one is live */
+  html.has-cursor,
+  html.has-cursor a,
+  html.has-cursor button,
+  html.has-cursor [data-cursor] {
+    cursor: none;
+  }
 }
 
 @layer components {

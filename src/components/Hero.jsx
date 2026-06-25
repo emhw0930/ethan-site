@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import InteractiveName from "./InteractiveName";
 
 const TAGS = ["Software Engineer", "Est. 2025", "Atlanta, GA"];
 
@@ -28,17 +29,17 @@ export default function Hero() {
         style={{ fontSize: "clamp(3.4rem, 14vw, 12rem)" }}
         aria-label="Meng-Han Ethan Wu"
       >
-        <span className={`line-mask ${shown ? "in" : ""}`}><span>Meng-Han</span></span>
-        <span className={`line-mask ${shown ? "in" : ""}`}>
-          <span style={{ transitionDelay: "0.12s" }}>
-            <em className="font-[340] italic">Ethan</em> Wu
-          </span>
-        </span>
+        <InteractiveName segments={[{ text: "Meng-Han" }]} shown={shown} />
+        <InteractiveName
+          segments={[{ text: "Ethan", italic: true }, { text: " Wu" }]}
+          shown={shown}
+          delay={0.12}
+        />
       </h1>
 
       <div className="flex flex-wrap items-end justify-between gap-8 border-t border-line pt-[1.4rem]">
         <p
-          className="max-w-[34ch] leading-[1.45] text-ink-soft"
+          className="max-w-[34ch] text-pretty leading-[1.45] text-ink-soft"
           style={{ fontSize: "clamp(1.05rem, 1.4vw, 1.35rem)" }}
         >
           I build AI&nbsp;/&nbsp;LLM backends and full-stack products that ship.

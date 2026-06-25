@@ -1,8 +1,7 @@
 import { facts } from "../data";
 import Reveal from "./Reveal";
 import SectionHead from "./SectionHead";
-
-const portrait = `${import.meta.env.BASE_URL}portrait.jpg`;
+import Portrait from "./Portrait";
 
 export default function About() {
   return (
@@ -10,20 +9,7 @@ export default function About() {
       <SectionHead idx="02" title="About" note="Engineer, bilingual, building toward AI products." />
 
       <div className="grid items-start gap-[clamp(2rem,6vw,5rem)] md:grid-cols-[0.85fr_1.25fr]">
-        <Reveal as="figure" className="m-0">
-          <div className="overflow-hidden border border-line bg-paper-2">
-            <img
-              src={portrait}
-              alt="Meng-Han Ethan Wu"
-              loading="lazy"
-              className="aspect-[4/5] w-full object-cover object-top transition duration-700 ease-ease hover:scale-[1.02]"
-            />
-          </div>
-          <figcaption className="mt-3 flex items-center justify-between font-mono text-[0.7rem] uppercase tracking-[0.06em] text-ink-faint">
-            <span>Meng-Han Ethan Wu</span>
-            <span>Atlanta · ’26</span>
-          </figcaption>
-        </Reveal>
+        <Portrait />
 
         <div>
           <Reveal>
